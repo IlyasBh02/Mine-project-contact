@@ -1,0 +1,107 @@
+
+
+/* just keep it her, i will put it with the original code when i end */
+
+
+#include <stdio.h>
+
+typedef struct {
+    char nom[100] ;
+    char email[100];
+    int num[20];
+    
+}contacts ;
+
+int count = 0;
+contacts cntanct[100];
+
+void ajouter_contact() {
+    if (count >= 200) {
+        printf("La liste des contacts est pleine.\n");
+    return;
+        
+int main (){
+    int choix;
+    
+    do {
+        printf("MENU : \n");
+        printf("1.Ajouter un contect . \n");
+        printf("2.Modifier un contacte . \n");
+        printf("3.Suprimer un contact .\n");
+        printf("4.Afficher tous les contacts .\n");
+        printf("Rechercher un contact . \n");
+        printf("6.Statistiques . \n");
+        printf("Entrer votre choix : ");
+        scanf("%d",&choix);
+        
+    switch (choix){
+        case 1 :  //Ajout
+          switch (choix){
+          do{
+              case 1 :
+              
+              
+              break ;
+              case 2 :
+              
+              
+              break ;
+              case 3 :
+              
+              break ;
+              
+              printf("Entrez votre choix : ");
+              scanf("%d", &choix);
+         }}while(choix!=3);
+        break ;
+        
+        case 2 :  //Afichage
+            switch (choix){
+             do{
+              case 1 :
+            
+              break ;
+              case 2 :
+            
+              break ;
+              case 3 :
+            
+              break ;
+              case 4 :
+              
+              break ;
+              
+              printf("Entrez votre choix : ");
+              scanf("%d", &choix);
+        }}while (choix != 4);
+        break;
+        case 3 : // Modification
+      
+      
+        break ;
+        case 4 : //Suppression / !!!! oui ou non
+      
+        break ;
+        case 5: //Recherche
+      
+      
+        break ;
+        case 6 : //Statistiques / age 
+      
+      
+        break ;
+        case 7 : // retour
+      
+      
+        break ;
+      
+      
+      
+      break ;
+      default: printf("Choix invalide. Veuillez réessayer.\n");
+    }
+    
+    } while (choix != 7);
+    
+    return 0 ;
+}
