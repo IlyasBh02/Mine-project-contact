@@ -15,6 +15,30 @@ typedef struct {
 RESERV R[200];
 int NV = 0; 
 
+void rservation_defaut() {
+    const char noms[][20] = {"Souli", "Binhoud", "Sayli", "Bendira", "Agori", "Sparo", "Silout", "Birou", "Racher", "Hanma"};
+    const char prenoms[][20] = {"Ahmed", "Amine", "Ilyas", "Ikram", "Hamza", "Azzedin", "Mouad", "Amina", "Jack", "Yuri"};
+    const char tele[][20] = {"0123456789", "0234567890", "0345678901", "0456789012", "0567890123", "0678901234", "0789012345", "0890123456", "0901234567", "0912345678"};
+    const int ages[] = {25, 30, 18, 40, 22, 29, 35, 42, 60, 15};
+    const char statuts[][20] = {"validé", "reporté", "annulé", "traité", "validé", "reporté", "validé", "annulé", "traité", "validé"};
+    const char dates[][20] = {"01/01/2032", "02/01/2023", "03/01/2023", "29/11/2024", "05/01/2023", "06/01/2023", "07/01/2023", "08/01/2023", "09/01/2023", "10/01/2025"};
+
+    for (int i = 0; i < 10; i++) {
+        if (NV < 200) {
+            strcpy(R[NV].nom, noms[i]);
+            strcpy(R[NV].prenom, prenoms[i]);
+            strcpy(R[NV].tele, tele[i]);
+            R[NV].age = ages[i];
+            strcpy(R[NV].statut, statuts[i]);
+            R[NV].ref = NV + 1;
+            strcpy(R[NV].date_reserv, dates[i]);
+            NV++;
+        }
+    }
+    
+    printf("10 reservations par defaut ajoutes.\n");
+}
+
 void Ajouter_Reserv() {       // P.1.  
     if (NV < 200) {
         printf("Veuillez entrer le nom : ");
@@ -222,13 +246,13 @@ float calculer_moyen_age(){
         total_age = total_age + R[i].age;
     }
     float moyen_age = total_age / NV ;
-    printf("La moyennne d'age est : %.2f ans ", &moyen_age);
+    printf("La moyennne d'age est : %.2f ans ", moyen_age);
 }
 
 
 //6.2
 void affichage_tranche_age (){
-    if ( NV = 0){
+    if ( NV == 0){
         printf("Aucune nombre a afficher ! ");
     }
     int Tr1 = 0 ;    //0-18
@@ -256,7 +280,7 @@ void affichage_tranche_age (){
 
 //6.3
 void affichage_statut(){
-    if ( NV = 0){
+    if ( NV == 0){
         printf("Aucune reservation a traitter ! ");
         return ;
     }
@@ -279,8 +303,8 @@ void affichage_statut(){
     }
 
     printf("Nombre total de resrvations par statut : \n");
-    printf("Pour reporte : %d .\n",&reporte);
     printf("Pour valide : %d .\n",&valide);
+    printf("Pour reporte : %d .\n",&reporte);
     printf("Pour annule : %d .\n",&annule);
     printf("Pour Traite : %d .\n",&traite);
 }
