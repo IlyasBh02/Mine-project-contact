@@ -45,10 +45,14 @@ void Ajouter_Reserv() {       // P.1.
         scanf("%s", R[NV].prenom);
         printf("Veuillez entrer le telephone : ");
         scanf("%s", R[NV].tele);
+        
         printf("Veuillez entrer l'age : ");
         scanf("%d", &R[NV].age);
+        if (R[NV].age < 12 || R[NV].age > 85) {
+            printf("Age invalid. L'age doit etre entre 18 et 85 ans. \n"); 
+        return ;
+        }
         
-
         printf("Veuillez choissir le statut  : \n");
         printf("1.Valide .\n");
         printf("2.Reporte .\n");
@@ -71,7 +75,6 @@ void Ajouter_Reserv() {       // P.1.
             break;
             default:
               printf("Choix invalide !");
-
         }
 
         R[NV].ref = NV + 1; 
@@ -108,7 +111,33 @@ void modifier_ou_supprimer(){
                 scanf("%s", R[i].nom);
                 printf("Nouveau prénom : ");
                 scanf("%s", R[i].prenom);
-              
+                printf("Nouvelle date de reservation : ");
+                scanf("%s",R[NV].date_reserv);
+                printf("Nouvelle statut");
+                printf("Veuillez choissir le statut  : \n");
+                printf("1.Valide .\n");
+                printf("2.Reporte .\n");
+                printf("3.Annule .\n");
+                printf("4.Traite .\n");
+                int CX ;
+                scanf("%d",&CX);
+                switch (CX){
+                    case 1 :
+                      strcpy(R[NV].statut, "valide");
+                    break;
+                    case 2 :
+                      strcpy(R[NV].statut, "reporte");
+                    break;
+                    case 3 :
+                      strcpy(R[NV].statut, "annule");
+                    break;
+                    case 4 :
+                      strcpy(R[NV].statut, "traite");
+                    break;
+                    default:
+                      printf("Choix invalide !");
+                }
+                
             } else if (choix == 2) {
                 for (int j = i; j < NV - 1; j++) {
                     R[j] = R[j + 1];  
